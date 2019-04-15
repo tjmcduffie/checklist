@@ -1,0 +1,13 @@
+*.seed
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
+*.lock
+
+db
+logs
+node_modules
+.DS_Store

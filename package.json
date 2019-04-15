@@ -1,0 +1,19 @@
+{
+  "name": "checklist",
+  "version": "0.0.1",
+  "description": "project for testing various features, libraries, architectures, etc",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tjmcduffie/checklist.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tjmcduffie/checklist/issues"
+  },
+  "homepage": "https://github.com/tjmcduffie/checklist#readme"
+}
