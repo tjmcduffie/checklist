@@ -1,0 +1,14 @@
+.create-item-input {
+  background-color: #dddddd;
+  border: 4px #ffffff solid;
+  font-size: 1rem;
+  font-style: italic;
+  line-height: 1.8rem;
+  padding: 5px 10px;
+  transition: background-color 300ms;
+  width: 100%;
+}
+
+.create-item-input:focus {
+  background-color: #ffffff;
+}
