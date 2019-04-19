@@ -24,7 +24,7 @@ class CreateItemForm extends Component {
     this.props.onCreate({
       description: value,
       isComplete: false,
-      uuid: uuid(value),
+      uuid: uuid(),
     });
     this._resetValue();
   }

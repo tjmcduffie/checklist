@@ -1,4 +1,4 @@
-import uuidv4 from 'uuid/v4';
+import uuidv1 from 'uuid/v1';
 
 /**
  * Legacy uuid function
@@ -9,7 +9,7 @@ import uuidv4 from 'uuid/v4';
  * }
  */
 
-// name param added to ease transition from 4 to v5
-export default function uuid(name) {
-  return uuidv4();
+// use a generic wrapper to make version switching less painful
+export default function uuid() {
+  return uuidv1();
 }
