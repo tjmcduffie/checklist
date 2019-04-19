@@ -1,23 +1,6 @@
 # Checklist
 project for testing various features, libraries, architectures, etc
 
-# Implementations
-
-## UI
-1. React
-
-## Server
-1. REST API via Express
-
-## Tooling
-
-### Build
-1. Webpack
-2. Babel
-
-### Testing
-1. Jest
-
 # Spec
 
 ## Basic
@@ -33,3 +16,14 @@ project for testing various features, libraries, architectures, etc
 3. Checklist items can be re-ordered
 4. Checklist items animate in and out
 5. Users can create multiple checklists
+6. Users can customize checklist name
+7. Users can determine whether to add new items to the beginning or end of checklist
+
+# Implementations
+
+## Basic
+- create-react-app using default configuration
+- React
+- no API
+- Jest
+- [prettier](https://facebook.github.io/create-react-app/docs/setting-up-your-editor#formatting-code-automatically) - @TODO
