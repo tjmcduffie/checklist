@@ -2,7 +2,6 @@ import classnames from 'classnames';
 import CreateItemButton from './CreateItemButton';
 import CreateItemInput from './CreateItemInput';
 import React, { Component } from 'react';
-import uuid from '../util/uuid';
 import '../util/Flex.css';
 import '../util/Spacing.css';
 
@@ -24,7 +23,6 @@ class CreateItemForm extends Component {
     this.props.onCreate({
       description: value,
       isComplete: false,
-      uuid: uuid(),
     });
     this._resetValue();
   }

@@ -4,11 +4,11 @@ import React from 'react';
 
 import './Items.css';
 
-const Items = ({items, onToggleIsComplete, onRemoveItem}) => {
+const Items = ({items, onToggleIsComplete, onRemoveItem, shouldShowCompleted}) => {
   return items.length > 0 ? (
     <ol className={classnames('items-list')}>
       {items.map(({description, isComplete, uuid}) => {
-        return (
+        return (!shouldShowCompleted && isComplete) ? null : (
           <Item
             description={description}
             isComplete={isComplete}
