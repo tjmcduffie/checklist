@@ -1,0 +1,28 @@
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-grow {
+  flex-grow: 1;
+}
+
+.flex-shrink {
+  flex-shrink: 1;
+}
+
+.flex-auto {
+  flex: 0 0 auto;
+}
+
+.flex-align-center {
+  align-self: center;
+}
+
+.flex-align-top {
+  align-self: flex-start;
+}
+
+.flex-align-bottom {
+  align-self: flex-end;
+}
