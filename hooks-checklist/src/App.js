@@ -2,7 +2,7 @@ import ChecklistCreateItemForm from './create-item-form/CreateItemForm';
 import ChecklistItems from './checklist/Items';
 import classnames from 'classnames';
 import * as db from './util/LocalDataAPI';
-import React, { useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 
 
 import './App.css';
@@ -14,26 +14,12 @@ const App = () => {
   const [items, setItems] = useState([]);
   const [shouldShowCompleted, setShouldShowCompleted] = useState(true);
 
-  // convert touseEffect
-  // componentDidMount() {
-  //   db.findAll().then(items => this.setState({items}));
-  //   db.findMetadata('shouldShowCompleted')
-  //     .then(shouldShow => {
-  //       this.setState({shouldShowCompleted: shouldShow != null ? shouldShow : true})
-  //       if (shouldShow == null) {
-  //         db.putMetadata('shouldShowCompleted', true);
-  //       }
-  //     })
-  //     // if the get fails, its because we haven't set the value.
-  //     .catch(this._onPromiseRejection);
-  // }
-
   const onCreate = (item) => db.create(item)
     .then(uuid => db.findByUuid(uuid))
     .then(dbItem => setItems(items.concat(dbItem)))
     .catch(onPromiseRejection);
 
-  const onPromiseRejection = e => setErrors(errors.concat(e.message));
+  const onPromiseRejection = useCallback(e => setErrors(errors.concat(e.message)), [errors]);
 
   const onToggleIsComplete = (uuid, prevIsChecked) => db.update(uuid, {isComplete: !prevIsChecked})
     .then(updated => {
@@ -51,6 +37,19 @@ const App = () => {
 
   const onToggleCompleted = () => db.putMetadata('shouldShowCompleted', !shouldShowCompleted)
     .then(() => setShouldShowCompleted(!shouldShowCompleted));
+
+  useEffect(() => {
+    db.findAll().then(items => setItems(items));
+    db.findMetadata('shouldShowCompleted')
+      .then(shouldShow => {
+        setShouldShowCompleted(shouldShow != null ? shouldShow : true);
+        if (shouldShow == null) {
+          db.putMetadata('shouldShowCompleted', true);
+        }
+      })
+      // if the get fails, its because we haven't set the value.
+      .catch(onPromiseRejection);
+  }, [onPromiseRejection]);
 
   return (
     <div className="app">
