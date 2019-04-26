@@ -14,7 +14,7 @@ const App = () => {
   const [items, setItems] = useState([]);
   const [shouldShowCompleted, setShouldShowCompleted] = useState(true);
 
-  // convert to useEffect
+  // convert touseEffect
   // componentDidMount() {
   //   db.findAll().then(items => this.setState({items}));
   //   db.findMetadata('shouldShowCompleted')

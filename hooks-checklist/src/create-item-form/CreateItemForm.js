@@ -1,48 +1,36 @@
 import classnames from 'classnames';
 import CreateItemButton from './CreateItemButton';
 import CreateItemInput from './CreateItemInput';
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import '../util/Flex.css';
 import '../util/Spacing.css';
 
-class CreateItemForm extends Component {
-  state = {
-    value: '',
-  }
-
-  _onChange = (e) => {
-    this.setState({value: e.target.value});
-  }
-
-  _onSubmit = (e) => {
+const CreateItemForm = ({onCreate}) => {
+  const [value, setValue] = useState('');
+  const onSubmit = e => {
     e.preventDefault();
-    const value = this.state.value.trim();
     if (value === '') {
       return;
     }
-    this.props.onCreate({
+    onCreate({
       description: value,
       isComplete: false,
     });
-    this._resetValue();
-  }
+    setValue('');
+  };
 
-  _resetValue = () => this.setState({value: ''});
-
-  render() {
-    return (
-      <form
-        className={classnames('flex-row')}
-        onSubmit={this._onSubmit}>
-        <CreateItemInput
-          className={classnames('flex-grow', 'space-after-regular')}
-          onChange={this._onChange}
-          value={this.state.value}
-        />
-        <CreateItemButton className="flex-shrink" />
-      </form>
-    );
-  }
+  return (
+    <form
+      className={classnames('flex-row')}
+      onSubmit={onSubmit}>
+      <CreateItemInput
+        className={classnames('flex-grow', 'space-after-regular')}
+        onChange={e => setValue(e.target.value.trim())}
+        value={value}
+      />
+      <CreateItemButton className="flex-shrink" />
+    </form>
+  );
 };
 
 export default CreateItemForm;
