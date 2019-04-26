@@ -1,0 +1,18 @@
+.item-checkbox-ui {
+  background-color: #dddddd;
+  border: 4px #ffffff solid;
+  display: block;
+  height: 1.8rem;
+  list-style-type: none;
+  margin: 0;
+  padding: 5px;
+  width: 1.8rem;
+}
+
+.item-checkbox-ui:focus {
+  background-color: #ffffff;
+}
+
+.item-checkbox-ui-complete {
+  background-image: url(../util/CheckboxCheck.svg);
+}
