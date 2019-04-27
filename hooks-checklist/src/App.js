@@ -21,22 +21,31 @@ const App = () => {
 
   const onPromiseRejection = useCallback(e => setErrors(errors.concat(e.message)), [errors]);
 
-  const onToggleIsComplete = (uuid, prevIsChecked) => db.update(uuid, {isComplete: !prevIsChecked})
-    .then(updated => {
-      if (updated === 0) {
-        throw new Error(`${uuid} could not be updated as it could not be found`);
-      }
-      return db.findByUuid(uuid);
-    })
-    .then(dbItem => setItems(items.map(item => item.uuid !== uuid ? item : dbItem)))
-    .catch(onPromiseRejection);
+  const onToggleIsComplete = useCallback(
+    (uuid, prevIsChecked) => db.update(uuid, {isComplete: !prevIsChecked})
+      .then(updated => {
+        if (updated === 0) {
+          throw new Error(`${uuid} could not be updated as it could not be found`);
+        }
+        return db.findByUuid(uuid);
+      })
+      .then(dbItem => setItems(items.map(item => item.uuid !== uuid ? item : dbItem)))
+      .catch(onPromiseRejection),
+    [items, onPromiseRejection],
+  );
 
-  const onRemoveItem = uuid => db.remove(uuid)
-    .then(setItems(items.filter(item => item.uuid !== uuid)))
-    .catch(onPromiseRejection);
+  const onRemoveItem = useCallback(
+    uuid => db.remove(uuid)
+      .then(setItems(items.filter(item => item.uuid !== uuid)))
+      .catch(onPromiseRejection),
+    [items, onPromiseRejection],
+  );
 
-  const onToggleCompleted = () => db.putMetadata('shouldShowCompleted', !shouldShowCompleted)
-    .then(() => setShouldShowCompleted(!shouldShowCompleted));
+  const onToggleCompleted = useCallback(
+    () => db.putMetadata('shouldShowCompleted', !shouldShowCompleted)
+      .then(() => setShouldShowCompleted(!shouldShowCompleted)),
+    [shouldShowCompleted]
+  );
 
   useEffect(() => {
     db.findAll().then(items => setItems(items));
