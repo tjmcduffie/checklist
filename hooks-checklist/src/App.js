@@ -1,5 +1,5 @@
 import ChecklistCreateItemForm from './create-item-form/CreateItemForm';
-import ChecklistItems from './checklist/Items';
+import {SortableItems as ChecklistItems} from './checklist/Items';
 import classnames from 'classnames';
 import * as db from './util/LocalDataAPI';
 import React, { useCallback, useEffect, useState } from 'react';
@@ -78,6 +78,7 @@ const App = () => {
           items={items}
           onToggleIsComplete={onToggleIsComplete}
           onRemoveItem={onRemoveItem}
+          onSortEnd={() => {}}
           shouldShowCompleted={shouldShowCompleted}
         />
         <ChecklistCreateItemForm onCreate={onCreate} />

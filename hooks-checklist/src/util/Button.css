@@ -1,4 +1,5 @@
 .clear-button,
+.flat-button,
 .grey-button {
   border: 4px transparent solid;
   cursor: pointer;
@@ -19,6 +20,18 @@
 .clear-button:hover {
   background-color: transparent;
   border-color: rgba(68, 68, 68, 0.1);
+}
+
+.flat-button {
+  background-color: rgba(68, 68, 68, 0);
+  border-color: transparent;
+  color: #444444;
+}
+
+.flat-button:focus,
+.flat-button:hover {
+  background-color: transparent;
+  border-color: rgba(68, 68, 68, 0);
 }
 
 .grey-button {
