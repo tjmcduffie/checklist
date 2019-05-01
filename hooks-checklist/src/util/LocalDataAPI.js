@@ -1,9 +1,9 @@
 import Dexie from 'dexie';
 import uuid from './uuid';
 
-const db = new Dexie('react-checklist');
+const db = new Dexie('hooks-checklist');
 db.version(1).stores({
-  items: "uuid, createdTimestamp, description, isComplete, lastUpdateTimestamp",
+  items: "uuid, createdTimestamp, description, order, isComplete, lastUpdateTimestamp",
   metadata: "key, value",
 });
 
@@ -15,13 +15,18 @@ export default db;
  * returns [Promise/A+](https://dexie.org/docs/Promise/Promise)
  */
 export function create(baseData) {
-  const now = Date.now();
-  const data = Object.assign(baseData, {
-    createdTimestamp: now,
-    lastUpdateTimestamp: now,
-    uuid: uuid(),
-  });
-  return db.table('items').add(data);
+  return db.table('items')
+    .count()
+    .then(count => {
+      const now = Date.now();
+      const data = Object.assign(baseData, {
+        createdTimestamp: now,
+        lastUpdateTimestamp: now,
+        order: count,
+        uuid: uuid(),
+      });
+      return db.table('items').add(data);
+    });
 }
 
 /**
@@ -63,7 +68,7 @@ export function findIncomplete() {
   return db.table('items')
     .where('isComplete')
     .equals(true)
-    .sortBy('createdTimestamp');
+    .sortBy('order');
 }
 
 /**
