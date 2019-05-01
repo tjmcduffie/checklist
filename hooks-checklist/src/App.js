@@ -14,12 +14,15 @@ const App = () => {
   const [items, setItems] = useState([]);
   const [shouldShowCompleted, setShouldShowCompleted] = useState(true);
 
-  const onCreate = (item) => db.create(item)
-    .then(uuid => db.findByUuid(uuid))
-    .then(dbItem => setItems(items.concat(dbItem)))
-    .catch(onPromiseRejection);
-
   const onPromiseRejection = useCallback(e => setErrors(errors.concat(e.message)), [errors]);
+
+  const onCreate = useCallback(
+    (item) => db.create(item)
+      .then(uuid => db.findByUuid(uuid))
+      .then(dbItem => setItems(items.concat(dbItem)))
+      .catch(onPromiseRejection),
+    [items, onPromiseRejection],
+  );
 
   const onToggleIsComplete = useCallback(
     (uuid, prevIsChecked) => db.update(uuid, {isComplete: !prevIsChecked})
