@@ -34,7 +34,7 @@ const Item = ({
         {description}
       </span>
       <button
-        className={classnames('clear-button', 'monospaced-button', 'flex-shrink', 'flex-align-top')}
+        className={classnames('clear-button', 'flex-shrink', 'flex-align-top')}
         onClick={_ => onRemove(uuid)}
         onKeyPress={
           e => ((e.key === " " || e.key === "Enter") && onRemove(uuid))

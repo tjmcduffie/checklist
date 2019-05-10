@@ -5,9 +5,11 @@
   cursor: pointer;
   display: inline-block;
   font-size: 1rem;
+  font-weight: normal;
   line-height: 1.8rem;
   padding: 5px 20px;
   transition: background-color 300ms, border-color 300ms;
+  white-space: nowrap;
 }
 
 .clear-button {
@@ -44,9 +46,4 @@
 .grey-button:hover {
   background-color: #333333;
   border-color: #333333;
-}
-
-.monospaced-button {
-  font-family: monospace;
-  font-weight: bold;
 }

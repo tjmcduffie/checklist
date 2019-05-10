@@ -65,7 +65,7 @@ const App = () => {
       <header className={classnames('flex-row')}>
         <h1 className={classnames('flex-grow')}>Checklist</h1>
         <button
-          className={classnames('clear-button', 'monospaced-button', 'flex-shrink', 'flex-align-center')}
+          className={classnames('clear-button', 'flex-shrink', 'flex-align-center')}
           onClick={onToggleCompleted}
           onKeyPress={
             e => ((e.key === " " || e.key === "Enter") && onToggleCompleted())
