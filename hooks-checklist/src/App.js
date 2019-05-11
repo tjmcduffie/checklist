@@ -48,7 +48,7 @@ const App = () => {
   );
 
   useEffect(() => {
-    db.findAll().then(items => setItems(items));
+    db.findAll('order').then(items => setItems(items));
     db.findMetadata('shouldShowCompleted')
       .then(shouldShow => {
         setShouldShowCompleted(shouldShow != null ? shouldShow : true);

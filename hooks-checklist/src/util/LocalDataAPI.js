@@ -55,8 +55,8 @@ export function remove(key) {
  * returns [Promise/A+](https://dexie.org/docs/Promise/Promise). Success receives
  *   and Array of Items in the db.
  */
-export function findAll() {
-  return db.table('items').orderBy('createdTimestamp').toArray();
+export function findAll(sortBy = 'createdTimestamp') {
+  return db.table('items').orderBy(sortBy).toArray();
 }
 
 /**
