@@ -42,6 +42,27 @@ export function update(key, baseData) {
 }
 
 /**
+ * update multiple Items
+ * data: Array of tuples containing a uuid and updates to apply
+ * returns [Promise/A+](https://dexie.org/docs/Promise/Promise)
+ */
+export function bulkUpdate(data) {
+  return new Promise((resolve, reject) => {
+    Promise.all(
+      data.map(([uuid, dataToUpdate]) => update(uuid, dataToUpdate)
+    )).then(values => {
+      values.forEach(value => {
+        if (value === 0) {
+          reject(new Error(`${uuid} could not be updated as it could not be found`));
+        }
+      });
+      return Promise.all(data.map(([uuid]) => findByUuid(uuid)))
+        .then(values => resolve(values));
+    });
+  });
+}
+
+/**
  * key: Item uuid
  * data: changes to Item object
  * returns [Promise/A+](https://dexie.org/docs/Promise/Promise)

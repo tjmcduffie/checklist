@@ -41,6 +41,45 @@ const App = () => {
     [items, onPromiseRejection],
   );
 
+  const onSortEnd = useCallback(
+    ({oldIndex, newIndex}) => {
+      console.time('onSortEnd.stateUpdate');
+      const from = items.findIndex(item => (item.order === oldIndex));
+      const to = items.findIndex(item => (item.order === newIndex));
+      const start = from < to ? from : to;
+      const end = from > to ? from : to;
+      // clone the list of items and extract the items that need to be updated
+      const itemsCopy = items.slice();
+      const itemsToMove = itemsCopy.slice(start, end + 1);
+      // relocate the item in the array
+      // might be easiest to sort the array after updating the order values
+      ((array, from, to) => {
+        array.splice(to < 0 ? array.length + to : to, 0, array.splice(from, 1)[0])
+      })(itemsToMove, from < to ? 0 : itemsToMove.length - 1, from > to ? 0 : itemsToMove.length - 1)
+      // update the order & replace the corresponding segment of the items list
+      itemsToMove.forEach((item, index) => {item.order = start + index; return item});
+      itemsCopy.splice(start, itemsToMove.length, ...itemsToMove);
+      // update state
+      setItems(itemsCopy);
+      console.timeEnd('onSortEnd.stateUpdate');
+
+      // update the results in the db
+      console.time('onSortEnd.dbSync');
+      db.bulkUpdate(itemsToMove.map(
+        // extract the updated order
+        ({uuid, order}, index) => ([uuid, {order: start + index}])
+      ))
+        .then(values => {
+          // after updates are complete, re-update the state to keep state and the db in sync
+          itemsCopy.splice(start, values.length, ...values);
+          setItems(itemsCopy);
+          console.timeEnd('onSortEnd.dbSync');
+        })
+        .catch(onPromiseRejection);
+    },
+    [items, onPromiseRejection],
+  );
+
   const onToggleCompleted = useCallback(
     () => db.putMetadata('shouldShowCompleted', !shouldShowCompleted)
       .then(() => setShouldShowCompleted(!shouldShowCompleted)),
@@ -78,7 +117,7 @@ const App = () => {
           items={items}
           onToggleIsComplete={onToggleIsComplete}
           onRemoveItem={onRemoveItem}
-          onSortEnd={() => {}}
+          onSortEnd={onSortEnd}
           shouldShowCompleted={shouldShowCompleted}
         />
         <ChecklistCreateItemForm onCreate={onCreate} />
