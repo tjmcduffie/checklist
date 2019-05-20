@@ -2,7 +2,7 @@ import classnames from 'classnames';
 import React from 'react';
 import './CreateItemInput.css';
 
-const CreateItemInput = ({className, onChange, value}) => {
+const CreateItemInputUI = ({className, onChange, value}) => {
   return (
     <input
       className={classnames('create-item-input', className)}
@@ -14,4 +14,4 @@ const CreateItemInput = ({className, onChange, value}) => {
   );
 }
 
-export default CreateItemInput;
+export default CreateItemInputUI;

@@ -3,7 +3,7 @@ import React from 'react';
 
 import './ItemCheckbox.css';
 
-const ItemCheckbox = ({className, isComplete, onChange, uuid}) => {
+const ItemCheckboxUI = ({className, isComplete, onChange, uuid}) => {
   const isCompleteClassName = isComplete ? 'item-checkbox-ui-complete' : '';
   return (
     <>
@@ -26,4 +26,4 @@ const ItemCheckbox = ({className, isComplete, onChange, uuid}) => {
   );
 }
 
-export default ItemCheckbox
+export default ItemCheckboxUI

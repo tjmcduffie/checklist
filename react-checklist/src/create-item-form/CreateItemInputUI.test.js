@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import CreateItemInput from './CreateItemInput';
+import CreateItemInputUI from './CreateItemInputUI';
 
-it('CreateItemInput renders without crashing', () => {
+it('CreateItemInputUI renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(
-    <CreateItemInput
+    <CreateItemInputUI
       className="test"
       onChange={() => {}}
       value="test"

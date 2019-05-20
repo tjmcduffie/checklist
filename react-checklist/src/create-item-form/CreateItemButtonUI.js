@@ -3,7 +3,7 @@ import React from 'react';
 
 import '../util/Button.css';
 
-const CreateItemButton = ({className}) => {
+const CreateItemButtonUI = ({className}) => {
   return (
     <button
       className={classnames('grey-button', className)}
@@ -13,4 +13,4 @@ const CreateItemButton = ({className}) => {
   );
 }
 
-export default CreateItemButton;
+export default CreateItemButtonUI;

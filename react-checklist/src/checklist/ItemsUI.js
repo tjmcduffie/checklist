@@ -1,10 +1,10 @@
 import classnames from 'classnames';
-import Item from './Item';
+import Item from './ItemUI';
 import React from 'react';
 
 import './Items.css';
 
-const Items = ({items, onToggleIsComplete, onRemoveItem, shouldShowCompleted}) => {
+const ItemsUI = ({items, onToggleIsComplete, onRemoveItem, shouldShowCompleted}) => {
   return items.length > 0 ? (
     <ol className={classnames('items-list')}>
       {items.map(({description, isComplete, uuid}) => {
@@ -23,4 +23,4 @@ const Items = ({items, onToggleIsComplete, onRemoveItem, shouldShowCompleted}) =
   ) : null;
 };
 
-export default Items;
+export default ItemsUI;

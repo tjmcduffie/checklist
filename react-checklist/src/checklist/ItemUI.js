@@ -1,12 +1,12 @@
 import classnames from 'classnames';
-import ItemCheckbox from './ItemCheckbox';
+import ItemCheckbox from './ItemCheckboxUI';
 import React from 'react';
 
 import '../util/Button.css';
 import '../util/Flex.css';
 import './Item.css';
 
-const Item = ({description, isComplete, onChange, onRemove, uuid}) => {
+const ItemUI = ({description, isComplete, onChange, onRemove, uuid}) => {
   const descriptionClassName = isComplete ? 'item-description-complete' : 'item-description';
   return (
     <li className={classnames('item', 'flex-row')}>
@@ -31,4 +31,4 @@ const Item = ({description, isComplete, onChange, onRemove, uuid}) => {
   );
 }
 
-export default Item;
+export default ItemUI;

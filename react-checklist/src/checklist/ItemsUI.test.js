@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Items from './Items';
+import ItemsUI from './ItemsUI';
 
-it('Items renders without crashing', () => {
+it('ItemsUI renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(
-    <Items
+    <ItemsUI
       items={[{description: 'test', isComplete: false, uuid: 'asdfasdf'}]}
       onToggleIsComplete={() => {}}
       onRemoveItem={() => {}}

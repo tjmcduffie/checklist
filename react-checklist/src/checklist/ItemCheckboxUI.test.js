@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ItemCheckbox from './ItemCheckbox';
+import ItemCheckboxUI from './ItemCheckboxUI';
 
-it('ItemCheckbox renders without crashing', () => {
+it('ItemCheckboxUI renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(
-    <ItemCheckbox
+    <ItemCheckboxUI
       className="test"
       isComplete={false}
       onChange={() => {}}
