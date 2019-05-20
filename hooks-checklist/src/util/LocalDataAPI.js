@@ -1,9 +1,9 @@
 import Dexie from 'dexie';
 import uuid from './uuid';
 
-const db = new Dexie('react-checklist');
+const db = new Dexie('hooks-checklist');
 db.version(1).stores({
-  items: "uuid, createdTimestamp, description, isComplete, lastUpdateTimestamp",
+  items: "uuid, createdTimestamp, description, order, isComplete, lastUpdateTimestamp",
   metadata: "key, value",
 });
 
@@ -15,13 +15,18 @@ export default db;
  * returns [Promise/A+](https://dexie.org/docs/Promise/Promise)
  */
 export function create(baseData) {
-  const now = Date.now();
-  const data = Object.assign(baseData, {
-    createdTimestamp: now,
-    lastUpdateTimestamp: now,
-    uuid: uuid(),
-  });
-  return db.table('items').add(data);
+  return db.table('items')
+    .count()
+    .then(count => {
+      const now = Date.now();
+      const data = Object.assign(baseData, {
+        createdTimestamp: now,
+        lastUpdateTimestamp: now,
+        order: count,
+        uuid: uuid(),
+      });
+      return db.table('items').add(data);
+    });
 }
 
 /**
@@ -34,6 +39,27 @@ export function update(key, baseData) {
     lastUpdateTimestamp: Date.now()
   });
   return db.table('items').update(key, data);
+}
+
+/**
+ * update multiple Items
+ * data: Array of tuples containing a uuid and updates to apply
+ * returns [Promise/A+](https://dexie.org/docs/Promise/Promise)
+ */
+export function bulkUpdate(data) {
+  return new Promise((resolve, reject) => {
+    Promise.all(
+      data.map(([uuid, dataToUpdate]) => update(uuid, dataToUpdate)
+    )).then(values => {
+      values.forEach(value => {
+        if (value === 0) {
+          reject(new Error(`${uuid} could not be updated as it could not be found`));
+        }
+      });
+      return Promise.all(data.map(([uuid]) => findByUuid(uuid)))
+        .then(values => resolve(values));
+    });
+  });
 }
 
 /**
@@ -50,8 +76,8 @@ export function remove(key) {
  * returns [Promise/A+](https://dexie.org/docs/Promise/Promise). Success receives
  *   and Array of Items in the db.
  */
-export function findAll() {
-  return db.table('items').orderBy('createdTimestamp').toArray();
+export function findAll(sortBy = 'createdTimestamp') {
+  return db.table('items').orderBy(sortBy).toArray();
 }
 
 /**
@@ -63,7 +89,7 @@ export function findIncomplete() {
   return db.table('items')
     .where('isComplete')
     .equals(true)
-    .sortBy('createdTimestamp');
+    .sortBy('order');
 }
 
 /**
