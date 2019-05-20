@@ -1,5 +1,5 @@
-import ChecklistCreateItemForm from './create-item-form/CreateItemForm';
-import ChecklistItems from './checklist/Items';
+import ChecklistCreateItemForm from './create-item-form/CreateItemFormClass';
+import ChecklistItems from './checklist/ItemsUI';
 import classnames from 'classnames';
 import * as db from './util/LocalDataAPI';
 import React, { Component } from 'react';
