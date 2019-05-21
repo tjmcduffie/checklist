@@ -1,7 +1,7 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
 import App from './App';
 import * as db from './util/LocalDataAPI';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 jest.mock('./util/LocalDataAPI');
 

@@ -1,6 +1,6 @@
+import ItemsUI from './ItemsUI';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ItemsUI from './ItemsUI';
 
 it('ItemsUI renders without crashing', () => {
   const div = document.createElement('div');

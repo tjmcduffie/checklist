@@ -1,7 +1,7 @@
 import classnames from 'classnames';
 import CreateItemButtonUI from './CreateItemButtonUI';
 import CreateItemInputUI from './CreateItemInputUI';
-import React, { Component } from 'react';
+import React from 'react';
 import '../util/Flex.css';
 import '../util/Spacing.css';
 

@@ -1,6 +1,6 @@
+import CreateItemInputUI from './CreateItemInputUI';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import CreateItemInputUI from './CreateItemInputUI';
 
 it('CreateItemInputUI renders without crashing', () => {
   const div = document.createElement('div');

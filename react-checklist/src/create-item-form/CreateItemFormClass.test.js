@@ -1,6 +1,6 @@
+import CreateItemFormClass from './CreateItemFormClass';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import CreateItemFormClass from './CreateItemFormClass';
 
 it('CreateItemFormClass renders without crashing', () => {
   const div = document.createElement('div');

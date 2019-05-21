@@ -1,6 +1,6 @@
+import CreateItemFormUI from './CreateItemFormUI';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import CreateItemFormUI from './CreateItemFormUI';
 
 it('CreateItemFormUI renders without crashing', () => {
   const div = document.createElement('div');

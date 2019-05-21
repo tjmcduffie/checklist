@@ -1,6 +1,6 @@
+import CreateItemButtonUI from './CreateItemButtonUI';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import CreateItemButtonUI from './CreateItemButtonUI';
 
 it('CreateItemButtonUI renders without crashing', () => {
   const div = document.createElement('div');
