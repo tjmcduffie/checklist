@@ -2,8 +2,8 @@ import classnames from 'classnames';
 import ItemCheckbox from './ItemCheckboxUI';
 import React from 'react';
 
-import '../util/Button.css';
-import '../util/Flex.css';
+import '../base/css/Button.css';
+import '../base/css/Flex.css';
 import './Item.css';
 
 const ItemUI = ({description, isComplete, onChange, onRemove, uuid}) => {

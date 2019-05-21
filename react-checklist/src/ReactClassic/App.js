@@ -1,13 +1,13 @@
-import ChecklistCreateItemForm from './create-item-form/CreateItemFormClass';
-import ChecklistItems from './checklist/ItemsUI';
+import ChecklistCreateItemForm from './CreateItemFormClass';
+import ChecklistItems from '../shared/checklist/ItemsUI';
 import classnames from 'classnames';
-import * as db from './util/LocalDataAPI';
+import * as db from '../shared/util/LocalDataAPI';
 import React, { Component } from 'react';
 
 
-import './App.css';
-import './util/Button.css';
-import './util/Flex.css';
+import '../shared/base/css/App.css';
+import '../shared/base/css/Button.css';
+import '../shared/base/css/Flex.css';
 
 class App extends Component {
   state = {

@@ -1,4 +1,4 @@
-import Item from './Item';
+import Item from './ItemUI';
 import React from 'react';
 import ReactDOM from 'react-dom';
 

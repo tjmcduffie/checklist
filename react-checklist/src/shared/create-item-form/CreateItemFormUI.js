@@ -2,8 +2,9 @@ import classnames from 'classnames';
 import CreateItemButtonUI from './CreateItemButtonUI';
 import CreateItemInputUI from './CreateItemInputUI';
 import React from 'react';
-import '../util/Flex.css';
-import '../util/Spacing.css';
+
+import '../base/css/Flex.css';
+import '../base/css/Spacing.css';
 
 const CreateItemFormUI = ({onChange, onSubmit, value}) => (
   <form
