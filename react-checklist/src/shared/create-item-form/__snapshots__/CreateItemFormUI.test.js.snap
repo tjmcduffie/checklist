@@ -5,18 +5,13 @@ exports[`CreateItemFormUI renders predictably 1`] = `
   className="flex-row"
   onSubmit={[Function]}
 >
-  <input
-    className="create-item-input flex-grow space-after-regular"
-    id="description"
+  <CreateItemInputUI
+    className="flex-grow space-after-regular"
     onChange={[Function]}
-    type="text"
     value=""
   />
-  <button
-    className="grey-button flex-shrink"
-    type="submit"
-  >
-    Add
-  </button>
+  <CreateItemButtonUI
+    className="flex-shrink"
+  />
 </form>
 `;

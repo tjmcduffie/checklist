@@ -2,6 +2,8 @@ import ItemsUI from './ItemsUI';
 import React from 'react';
 import {create} from 'react-test-renderer';
 
+jest.mock('./ItemUI', () => 'ItemUI');
+
 describe('ItemsUI', () => {
   const noop = () => {};
   const items = [

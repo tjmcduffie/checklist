@@ -2,6 +2,10 @@ import CreateItemFormUI from './CreateItemFormUI';
 import React from 'react';
 import {create} from 'react-test-renderer';
 
+jest
+  .mock('./CreateItemButtonUI', () => 'CreateItemButtonUI')
+  .mock('./CreateItemInputUI', () => 'CreateItemInputUI');
+
 describe('CreateItemFormUI', () => {
   const noop = () => {};
 

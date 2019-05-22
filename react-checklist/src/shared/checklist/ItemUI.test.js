@@ -2,6 +2,8 @@ import ItemUI from './ItemUI';
 import React from 'react';
 import {create} from 'react-test-renderer';
 
+jest.mock('./ItemCheckboxUI', () => 'ItemCheckboxUI');
+
 describe('ItemUI', () => {
   const noop = () => {};
 

@@ -4,18 +4,11 @@ exports[`ItemUI renders predictably when complete 1`] = `
 <li
   className="item flex-row"
 >
-  <span
-    className="flex-auto item-checkbox-ui"
-    onClick={[Function]}
-    onKeyPress={[Function]}
-    tabIndex={0}
-  />
-  <input
-    checked={false}
-    className="item-checkbox-input"
-    hidden={true}
+  <ItemCheckboxUI
+    className="flex-auto"
+    isComplete={false}
     onChange={[Function]}
-    type="checkbox"
+    uuid="asdfasdf"
   />
   <span
     className="item-description flex-grow flex-align-center"
@@ -36,18 +29,11 @@ exports[`ItemUI renders predictably when incomplete 1`] = `
 <li
   className="item flex-row"
 >
-  <span
-    className="flex-auto item-checkbox-ui item-checkbox-ui-complete"
-    onClick={[Function]}
-    onKeyPress={[Function]}
-    tabIndex={0}
-  />
-  <input
-    checked={true}
-    className="item-checkbox-input"
-    hidden={true}
+  <ItemCheckboxUI
+    className="flex-auto"
+    isComplete={true}
     onChange={[Function]}
-    type="checkbox"
+    uuid="asdfasdf"
   />
   <span
     className="item-description-complete flex-grow flex-align-center"
