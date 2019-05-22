@@ -4,7 +4,10 @@ import * as db from '../shared/util/LocalDataAPI';
 import React from 'react';
 import {create} from 'react-test-renderer';
 
-jest.mock('../shared/util/LocalDataAPI');
+jest
+  .mock('../shared/util/LocalDataAPI')
+  .mock('./CreateItemFormClass', () => 'CreateItemFormClass')
+  .mock('../shared/checklist/ItemsUI', () => 'ItemsUI');
 
 beforeEach(() => {
   db.findAll.mockResolvedValue([]);

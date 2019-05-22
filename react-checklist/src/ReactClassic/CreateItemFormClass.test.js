@@ -3,6 +3,8 @@ import {shallow} from 'enzyme';
 import React from 'react';
 import {create} from 'react-test-renderer';
 
+jest.mock('../shared/create-item-form/CreateItemFormUI', () => 'CreateItemFormUI');
+
 it('CreateItemFormClass renders without crashing', () => {
   const elem = create(
     <CreateItemFormClass onCreate={() => {}} />
