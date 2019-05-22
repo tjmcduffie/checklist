@@ -1,12 +1,13 @@
 import CreateItemFormClass from './CreateItemFormClass';
 import {shallow} from 'enzyme';
 import React from 'react';
-import ReactDOM from 'react-dom';
+import {create} from 'react-test-renderer';
 
 it('CreateItemFormClass renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<CreateItemFormClass onCreate={() => {}} />, div);
-  ReactDOM.unmountComponentAtNode(div);
+  const elem = create(
+    <CreateItemFormClass onCreate={() => {}} />
+  );
+  elem.unmount();
 });
 
 describe('CreateItemFormClass maintains form state', () => {

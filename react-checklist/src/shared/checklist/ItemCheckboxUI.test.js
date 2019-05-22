@@ -1,19 +1,16 @@
 import {shallow} from 'enzyme';
 import ItemCheckboxUI from './ItemCheckboxUI';
 import React from 'react';
-import ReactDOM from 'react-dom';
 import {create} from 'react-test-renderer';
 
 describe('ItemCheckboxUI', () => {
   const noop = () => {};
 
   it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(
-      <ItemCheckboxUI className="test" isComplete={false} onChange={noop} uuid="asdfasdf" />,
-      div
+    const elem = create(
+      <ItemCheckboxUI isComplete={false} onChange={noop} uuid="asdfasdf" />
     );
-    ReactDOM.unmountComponentAtNode(div);
+    elem.unmount();
   });
 
   describe('renders predictably', () => {

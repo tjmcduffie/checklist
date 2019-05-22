@@ -1,16 +1,13 @@
 import CreateItemButtonUI from './CreateItemButtonUI';
 import React from 'react';
-import ReactDOM from 'react-dom';
 import {create} from 'react-test-renderer';
 
 describe('CreateItemButtonUI', () => {
   it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(
-      <CreateItemButtonUI className="test" />,
-      div
+    const elem = create(
+      <CreateItemButtonUI className="test" />
     );
-    ReactDOM.unmountComponentAtNode(div);
+    elem.unmount();
   });
 
   describe('renders predictably', () => {

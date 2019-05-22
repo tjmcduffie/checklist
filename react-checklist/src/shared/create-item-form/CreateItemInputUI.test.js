@@ -1,18 +1,15 @@
 import CreateItemInputUI from './CreateItemInputUI';
 import React from 'react';
-import ReactDOM from 'react-dom';
 import {create} from 'react-test-renderer';
 
 describe('CreateItemInputUI', () => {
   const noop = () => {};
 
   it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(
-      <CreateItemInputUI className="test" onChange={noop} value="test" />,
-      div
+    const elem = create(
+      <CreateItemInputUI className="test" onChange={noop} value="test" />
     );
-    ReactDOM.unmountComponentAtNode(div);
+    elem.unmount();
   });
 
   describe('renders predictably', () => {

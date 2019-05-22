@@ -1,18 +1,15 @@
 import CreateItemFormUI from './CreateItemFormUI';
 import React from 'react';
-import ReactDOM from 'react-dom';
 import {create} from 'react-test-renderer';
 
 describe('CreateItemFormUI', () => {
   const noop = () => {};
 
   it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(
-      <CreateItemFormUI onChange={noop} onSubmit={noop} value="" />,
-      div
+    const elem = create(
+      <CreateItemFormUI onChange={noop} onSubmit={noop} value="" />
     );
-    ReactDOM.unmountComponentAtNode(div);
+    elem.unmount();
   });
 
   it('renders predictably', () => {

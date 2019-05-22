@@ -2,7 +2,7 @@ import App from './App';
 import {shallow} from 'enzyme';
 import * as db from '../shared/util/LocalDataAPI';
 import React from 'react';
-import ReactDOM from 'react-dom';
+import {create} from 'react-test-renderer';
 
 jest.mock('../shared/util/LocalDataAPI');
 
@@ -21,9 +21,8 @@ afterEach(() => {
 it('App renders without crashing', () => {
   db.findAll.mockResolvedValue([]);
   db.findMetadata.mockResolvedValue(true);
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
-  ReactDOM.unmountComponentAtNode(div);
+  const elem = create(<App />);
+  elem.unmount();
 });
 
 describe('App renders child components', () => {

@@ -1,18 +1,15 @@
 import ItemUI from './ItemUI';
 import React from 'react';
-import ReactDOM from 'react-dom';
 import {create} from 'react-test-renderer';
 
 describe('ItemUI', () => {
   const noop = () => {};
 
   it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(
-      <ItemUI description="test" isComplete={false} onChange={noop} onRemove={noop} uuid="asdfasdf" />,
-      div
+    const elem = create(
+      <ItemUI description="test" isComplete={false} onChange={noop} onRemove={noop} uuid="asdfasdf" />
     );
-    ReactDOM.unmountComponentAtNode(div);
+    elem.unmount();
   });
 
   describe('renders predictably', () => {

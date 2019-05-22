@@ -1,6 +1,5 @@
 import ItemsUI from './ItemsUI';
 import React from 'react';
-import ReactDOM from 'react-dom';
 import {create} from 'react-test-renderer';
 
 describe('ItemsUI', () => {
@@ -12,12 +11,10 @@ describe('ItemsUI', () => {
   ];
 
   it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(
-      <ItemsUI items={items} onToggleIsComplete={noop} onRemoveItem={noop} />,
-      div
+    const elem = create(
+      <ItemsUI items={items} onToggleIsComplete={noop} onRemoveItem={noop} />
     );
-    ReactDOM.unmountComponentAtNode(div);
+    elem.unmount();
   });
 
   describe('renders predictably', () => {
