@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CreateItemButtonUI renders predictably when a className is provided 1`] = `
+<button
+  className="grey-button test"
+  type="submit"
+>
+  Add
+</button>
+`;
+
+exports[`CreateItemButtonUI renders predictably when no className is provided 1`] = `
+<button
+  className="grey-button"
+  type="submit"
+>
+  Add
+</button>
+`;

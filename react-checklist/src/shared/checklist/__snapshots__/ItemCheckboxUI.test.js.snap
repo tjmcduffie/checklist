@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ItemCheckboxUI renders predictably when complete 1`] = `
+Array [
+  <span
+    className="item-checkbox-ui item-checkbox-ui-complete"
+    onClick={[Function]}
+    onKeyPress={[Function]}
+    tabIndex={0}
+  />,
+  <input
+    checked={true}
+    className="item-checkbox-input"
+    hidden={true}
+    onChange={[Function]}
+    type="checkbox"
+  />,
+]
+`;
+
+exports[`ItemCheckboxUI renders predictably when incomplete 1`] = `
+Array [
+  <span
+    className="item-checkbox-ui"
+    onClick={[Function]}
+    onKeyPress={[Function]}
+    tabIndex={0}
+  />,
+  <input
+    checked={false}
+    className="item-checkbox-input"
+    hidden={true}
+    onChange={[Function]}
+    type="checkbox"
+  />,
+]
+`;
+
+exports[`ItemCheckboxUI renders predictably when supplied a classname 1`] = `
+Array [
+  <span
+    className="foo item-checkbox-ui"
+    onClick={[Function]}
+    onKeyPress={[Function]}
+    tabIndex={0}
+  />,
+  <input
+    checked={false}
+    className="item-checkbox-input"
+    hidden={true}
+    onChange={[Function]}
+    type="checkbox"
+  />,
+]
+`;

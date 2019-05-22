@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CreateItemInputUI renders predictably when a className is provided 1`] = `
+<input
+  className="create-item-input test"
+  id="description"
+  onChange={[Function]}
+  type="text"
+  value="test"
+/>
+`;
+
+exports[`CreateItemInputUI renders predictably when no className is provided 1`] = `
+<input
+  className="create-item-input"
+  id="description"
+  onChange={[Function]}
+  type="text"
+  value="test"
+/>
+`;

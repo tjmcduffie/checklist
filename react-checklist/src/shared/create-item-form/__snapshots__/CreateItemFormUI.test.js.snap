@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CreateItemFormUI renders predictably 1`] = `
+<form
+  className="flex-row"
+  onSubmit={[Function]}
+>
+  <input
+    className="create-item-input flex-grow space-after-regular"
+    id="description"
+    onChange={[Function]}
+    type="text"
+    value=""
+  />
+  <button
+    className="grey-button flex-shrink"
+    type="submit"
+  >
+    Add
+  </button>
+</form>
+`;

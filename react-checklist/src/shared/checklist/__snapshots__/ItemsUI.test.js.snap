@@ -1,0 +1,160 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ItemsUI renders predictably when showing all items 1`] = `
+<ol
+  className="items-list"
+>
+  <li
+    className="item flex-row"
+  >
+    <span
+      className="flex-auto item-checkbox-ui"
+      onClick={[Function]}
+      onKeyPress={[Function]}
+      tabIndex={0}
+    />
+    <input
+      checked={false}
+      className="item-checkbox-input"
+      hidden={true}
+      onChange={[Function]}
+      type="checkbox"
+    />
+    <span
+      className="item-description flex-grow flex-align-center"
+    >
+      one
+    </span>
+    <button
+      className="clear-button monospaced-button flex-shrink flex-align-top"
+      onClick={[Function]}
+      onKeyPress={[Function]}
+    >
+      delete
+    </button>
+  </li>
+  <li
+    className="item flex-row"
+  >
+    <span
+      className="flex-auto item-checkbox-ui item-checkbox-ui-complete"
+      onClick={[Function]}
+      onKeyPress={[Function]}
+      tabIndex={0}
+    />
+    <input
+      checked={true}
+      className="item-checkbox-input"
+      hidden={true}
+      onChange={[Function]}
+      type="checkbox"
+    />
+    <span
+      className="item-description-complete flex-grow flex-align-center"
+    >
+      two
+    </span>
+    <button
+      className="clear-button monospaced-button flex-shrink flex-align-top"
+      onClick={[Function]}
+      onKeyPress={[Function]}
+    >
+      delete
+    </button>
+  </li>
+  <li
+    className="item flex-row"
+  >
+    <span
+      className="flex-auto item-checkbox-ui"
+      onClick={[Function]}
+      onKeyPress={[Function]}
+      tabIndex={0}
+    />
+    <input
+      checked={false}
+      className="item-checkbox-input"
+      hidden={true}
+      onChange={[Function]}
+      type="checkbox"
+    />
+    <span
+      className="item-description flex-grow flex-align-center"
+    >
+      three
+    </span>
+    <button
+      className="clear-button monospaced-button flex-shrink flex-align-top"
+      onClick={[Function]}
+      onKeyPress={[Function]}
+    >
+      delete
+    </button>
+  </li>
+</ol>
+`;
+
+exports[`ItemsUI renders predictably when showing only incomplete items 1`] = `
+<ol
+  className="items-list"
+>
+  <li
+    className="item flex-row"
+  >
+    <span
+      className="flex-auto item-checkbox-ui"
+      onClick={[Function]}
+      onKeyPress={[Function]}
+      tabIndex={0}
+    />
+    <input
+      checked={false}
+      className="item-checkbox-input"
+      hidden={true}
+      onChange={[Function]}
+      type="checkbox"
+    />
+    <span
+      className="item-description flex-grow flex-align-center"
+    >
+      one
+    </span>
+    <button
+      className="clear-button monospaced-button flex-shrink flex-align-top"
+      onClick={[Function]}
+      onKeyPress={[Function]}
+    >
+      delete
+    </button>
+  </li>
+  <li
+    className="item flex-row"
+  >
+    <span
+      className="flex-auto item-checkbox-ui"
+      onClick={[Function]}
+      onKeyPress={[Function]}
+      tabIndex={0}
+    />
+    <input
+      checked={false}
+      className="item-checkbox-input"
+      hidden={true}
+      onChange={[Function]}
+      type="checkbox"
+    />
+    <span
+      className="item-description flex-grow flex-align-center"
+    >
+      three
+    </span>
+    <button
+      className="clear-button monospaced-button flex-shrink flex-align-top"
+      onClick={[Function]}
+      onKeyPress={[Function]}
+    >
+      delete
+    </button>
+  </li>
+</ol>
+`;
