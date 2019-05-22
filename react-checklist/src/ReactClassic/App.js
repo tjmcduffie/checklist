@@ -17,7 +17,9 @@ class App extends Component {
   };
 
   componentDidMount() {
-    db.findAll().then(items => this.setState({items}));
+    db.findAll()
+      .then(items => this.setState({items}))
+      .catch(this._onPromiseRejection);
     db.findMetadata('shouldShowCompleted')
       .then(shouldShow => {
         this.setState({shouldShowCompleted: shouldShow != null ? shouldShow : true})
@@ -33,13 +35,13 @@ class App extends Component {
     db.create(item)
       .then(uuid => db.findByUuid(uuid))
       .then(dbItem => this.setState(
-        ({items: prevItems}) => ({items: prevItems.concat(dbItem)})
+        ({items: prevItems}) => ({items: prevItems.concat(dbItem)}),
       ))
       .catch(this._onPromiseRejection);
   }
 
   _onPromiseRejection = e => this.setState(
-    ({prevErrors}) => ({errors: prevErrors.concat(e.message)})
+    ({errors}) => ({errors: errors.concat(e.message)}),
   );
 
   _onToggleIsComplete = (uuid, prevIsChecked) => {
@@ -60,7 +62,7 @@ class App extends Component {
   _onRemoveItem = uuid => {
     db.remove(uuid)
       .then(this.setState(
-        ({items: prevItems}) => ({items: prevItems.filter(item => item.uuid !== uuid)})
+        ({items: prevItems}) => ({items: prevItems.filter(item => item.uuid !== uuid)}),
       ))
       .catch(this._onPromiseRejection);
   }
