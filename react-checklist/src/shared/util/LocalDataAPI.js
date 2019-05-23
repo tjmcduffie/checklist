@@ -92,6 +92,5 @@ export function findMetadata(key) {
  *   the metadata object.
  */
 export function putMetadata(key, data) {
-  console.log(key, data);
   return db.table('metadata').put({key, value: data});
 }
