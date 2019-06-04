@@ -30,8 +30,10 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "cypress": "^3.3.1",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.13.2",
+    "puppeteer": "^1.17.0",
     "react-test-renderer": "^16.8.6"
   }
 }
