@@ -5,9 +5,12 @@
   "dependencies": {
     "classnames": "^2.2.6",
     "dexie": "^2.0.4",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
+    "react": "^16.9.0-alpha.0",
+    "react-dom": "^16.9.0-alpha.0",
     "react-scripts": "^2.1.8",
+    "react-sortable-hoc": "^1.9.1",
+    "react-test-renderer": "^16.9.0-alpha.0",
+    "scheduler": "^0.14.0",
     "uuid": "^3.3.2"
   },
   "scripts": {
@@ -27,7 +30,7 @@
   ],
   "devDependencies": {
     "enzyme": "^3.9.0",
-    "enzyme-adapter-react-16": "^1.13.1",
+    "enzyme-adapter-react-16": "^1.13.2",
     "react-test-renderer": "^16.8.6"
   }
 }
