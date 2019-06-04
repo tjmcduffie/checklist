@@ -1,16 +1,19 @@
 import classnames from 'classnames';
-import Item from './ItemUI';
+import ItemUI, {SortableItem} from './ItemUI';
 import React from 'react';
+import {SortableContainer} from 'react-sortable-hoc';
 
 import './Items.css';
 
-const ItemsUI = ({items, onToggleIsComplete, onRemoveItem, shouldShowCompleted}) => {
+const ItemsUI = ({isSortable, items, onToggleIsComplete, onRemoveItem, shouldShowCompleted}) => {
+  const ItemComponent = isSortable ? SortableItem : ItemUI
   return items.length > 0 ? (
     <ol className={classnames('items-list')}>
-      {items.map(({description, isComplete, uuid}) => {
+      {items.map(({description, isComplete, order, uuid}) => {
         return (!shouldShowCompleted && isComplete) ? null : (
-          <Item
+          <ItemComponent
             description={description}
+            index={order}
             isComplete={isComplete}
             key={uuid}
             onChange={onToggleIsComplete}
@@ -24,3 +27,21 @@ const ItemsUI = ({items, onToggleIsComplete, onRemoveItem, shouldShowCompleted})
 };
 
 export default ItemsUI;
+
+const SortableItemsContainer = SortableContainer(
+  ({itemsProps}) => (
+    <ItemsUI
+      isSortable
+      {...itemsProps}
+    />
+  )
+);
+
+export const SortableItems = ({onSortEnd, ...itemsProps}) => (
+  <SortableItemsContainer
+    itemsProps={itemsProps}
+    onSortEnd={onSortEnd}
+    useDragHandle
+    lockAxis="y"
+  />
+);

@@ -1,15 +1,31 @@
 import classnames from 'classnames';
 import ItemCheckbox from './ItemCheckboxUI';
 import React from 'react';
+import {
+  SortableElement,
+  SortableHandle,
+} from 'react-sortable-hoc';
 
 import '../base/css/Button.css';
 import '../base/css/Flex.css';
 import './Item.css';
 
-const ItemUI = ({description, isComplete, onChange, onRemove, uuid}) => {
+const ItemUI = ({
+  beforeContent,
+  description,
+  isComplete,
+  onChange,
+  onRemove,
+  uuid
+}) => {
   const descriptionClassName = isComplete ? 'item-description-complete' : 'item-description';
   return (
     <li className={classnames('item', 'flex-row')}>
+      {beforeContent && (
+        <span className={classnames('flex-shrink', 'flex-align-top')}>
+          {beforeContent}
+        </span>
+      )}
       <ItemCheckbox
         className={classnames('flex-auto')}
         isComplete={isComplete}
@@ -32,3 +48,13 @@ const ItemUI = ({description, isComplete, onChange, onRemove, uuid}) => {
 }
 
 export default ItemUI;
+
+const Handle = SortableHandle(props => (
+  <span className={classnames('item-sort-handle', 'flat-button')} tabIndex={0}>
+    ::
+  </span>
+));
+
+export const SortableItem = SortableElement(
+  props => (<ItemUI {...props} beforeContent={<Handle />} />)
+);
