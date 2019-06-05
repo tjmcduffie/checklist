@@ -1,12 +1,15 @@
 .clear-button,
+.flat-button,
 .grey-button {
   border: 4px transparent solid;
   cursor: pointer;
   display: inline-block;
   font-size: 1rem;
+  font-weight: normal;
   line-height: 1.8rem;
   padding: 5px 20px;
   transition: background-color 300ms, border-color 300ms;
+  white-space: nowrap;
 }
 
 .clear-button {
@@ -21,6 +24,18 @@
   border-color: rgba(68, 68, 68, 0.1);
 }
 
+.flat-button {
+  background-color: rgba(68, 68, 68, 0);
+  border-color: transparent;
+  color: #444444;
+}
+
+.flat-button:focus,
+.flat-button:hover {
+  background-color: transparent;
+  border-color: rgba(68, 68, 68, 0);
+}
+
 .grey-button {
   background-color: #444444;
   border-color: #444444;
@@ -31,9 +46,4 @@
 .grey-button:hover {
   background-color: #333333;
   border-color: #333333;
-}
-
-.monospaced-button {
-  font-family: monospace;
-  font-weight: bold;
 }

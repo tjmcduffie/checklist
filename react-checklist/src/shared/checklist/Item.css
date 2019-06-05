@@ -11,3 +11,8 @@
   color: #777777;
   text-decoration: line-through;
 }
+
+.item-sort-handle {
+  cursor: move;
+  padding-left: 0px;
+}
