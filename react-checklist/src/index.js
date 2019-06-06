@@ -1,9 +1,9 @@
-import * as serviceWorker from './serviceWorker';
+import * as serviceWorker from 'serviceWorker';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Router from './shared/chrome/Router';
+import Router from 'shared/chrome/Router';
 
-import './shared/chrome/css/Root.css';
+import 'shared/chrome/css/Root.css';
 
 ReactDOM.render(<Router />, document.getElementById('root'));
 

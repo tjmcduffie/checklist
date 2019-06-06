@@ -1,7 +1,7 @@
 import classnames from 'classnames';
 import React from 'react';
 
-import './CreateItemInput.css';
+import 'shared/create-item-form/CreateItemInput.css';
 
 const CreateItemInputUI = ({className, onChange, value}) => {
   return (

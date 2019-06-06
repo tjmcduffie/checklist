@@ -1,4 +1,4 @@
-import Loader from './Loader';
+import Loader from 'shared/base/Loader';
 import React, {lazy, Suspense} from 'react';
 
 const Deferred = ({importFn, id}) => {

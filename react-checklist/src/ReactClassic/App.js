@@ -1,13 +1,13 @@
-import ChecklistCreateItemForm from './CreateItemFormClass';
-import ChecklistItems from '../shared/checklist/ItemsUI';
-import Header from '../shared/chrome/Header';
-import * as db from '../shared/util/LocalDataAPI';
+import ChecklistCreateItemForm from 'ReactClassic/CreateItemFormClass';
+import ChecklistItems from 'shared/checklist/ItemsUI';
+import Header from 'shared/chrome/Header';
+import * as db from 'shared/util/LocalDataAPI';
 import React, { Component } from 'react';
 
 
-import '../shared/chrome/css/App.css';
-import '../shared/base/css/Button.css';
-import '../shared/base/css/Flex.css';
+import 'shared/chrome/css/App.css';
+import 'shared/base/css/Button.css';
+import 'shared/base/css/Flex.css';
 
 class App extends Component {
   state = {

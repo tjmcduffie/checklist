@@ -1,9 +1,9 @@
 import classnames from 'classnames';
-import ItemUI, {SortableItem} from './ItemUI';
+import ItemUI, {SortableItem} from 'shared/checklist/ItemUI';
 import React from 'react';
 import {SortableContainer} from 'react-sortable-hoc';
 
-import './Items.css';
+import 'shared/checklist/Items.css';
 
 const ItemsUI = ({isSortable, items, onToggleIsComplete, onRemoveItem, shouldShowCompleted}) => {
   const ItemComponent = isSortable ? SortableItem : ItemUI

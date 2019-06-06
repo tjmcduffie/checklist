@@ -1,8 +1,8 @@
 import React from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
-import Deferred from '../base/Deferred';
-import Nav from './Nav';
-import routesConfig from '../../routesConfig';
+import Deferred from 'shared/base/Deferred';
+import Nav from 'shared/chrome/Nav';
+import routesConfig from 'routesConfig';
 
 const Router = () => (
   <BrowserRouter>

@@ -1,7 +1,7 @@
 import classnames from 'classnames';
 import React from 'react';
 
-import './ItemCheckbox.css';
+import 'shared/checklist/ItemCheckbox.css';
 
 const ItemCheckboxUI = ({className, isComplete, onChange, uuid}) => {
   const isCompleteClassName = isComplete ? 'item-checkbox-ui-complete' : '';

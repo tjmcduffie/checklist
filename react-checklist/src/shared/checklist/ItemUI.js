@@ -1,14 +1,14 @@
 import classnames from 'classnames';
-import ItemCheckbox from './ItemCheckboxUI';
+import ItemCheckbox from 'shared/checklist/ItemCheckboxUI';
 import React from 'react';
 import {
   SortableElement,
   SortableHandle,
 } from 'react-sortable-hoc';
 
-import '../base/css/Button.css';
-import '../base/css/Flex.css';
-import './Item.css';
+import 'shared/base/css/Button.css';
+import 'shared/base/css/Flex.css';
+import 'shared/checklist/Item.css';
 
 const ItemUI = ({
   beforeContent,

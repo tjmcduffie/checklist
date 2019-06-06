@@ -1,12 +1,12 @@
-import CreateItemFormHooks from './CreateItemFormHooks';
-import {SortableItems as ChecklistItems} from '../shared/checklist/ItemsUI';
-import Header from '../shared/chrome/Header';
-import * as db from '../shared/util/LocalDataAPI';
+import CreateItemFormHooks from 'ReactHooks/CreateItemFormHooks';
+import {SortableItems as ChecklistItems} from 'shared/checklist/ItemsUI';
+import Header from 'shared/chrome/Header';
+import * as db from 'shared/util/LocalDataAPI';
 import React, { useCallback, useEffect, useState } from 'react';
 
-import '../shared/chrome/css/App.css';
-import '../shared/base/css/Button.css';
-import '../shared/base/css/Flex.css';
+import 'shared/chrome/css/App.css';
+import 'shared/base/css/Button.css';
+import 'shared/base/css/Flex.css';
 
 const App = () => {
   const [errors, setErrors] = useState([]);

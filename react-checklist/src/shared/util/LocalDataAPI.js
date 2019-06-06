@@ -1,5 +1,5 @@
 import Dexie from 'dexie';
-import uuid from './uuid';
+import uuid from 'shared/util/uuid';
 
 const db = new Dexie('react-checklist');
 db.version(1).stores({

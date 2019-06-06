@@ -1,10 +1,10 @@
 import classnames from 'classnames';
-import CreateItemButtonUI from './CreateItemButtonUI';
-import CreateItemInputUI from './CreateItemInputUI';
+import CreateItemButtonUI from 'shared/create-item-form/CreateItemButtonUI';
+import CreateItemInputUI from 'shared/create-item-form/CreateItemInputUI';
 import React from 'react';
 
-import '../base/css/Flex.css';
-import '../base/css/Spacing.css';
+import 'shared/base/css/Flex.css';
+import 'shared/base/css/Spacing.css';
 
 const CreateItemFormUI = ({onChange, onSubmit, value}) => (
   <form

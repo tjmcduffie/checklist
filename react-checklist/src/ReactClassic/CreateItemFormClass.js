@@ -1,4 +1,4 @@
-import CreateItemFormUI from '../shared/create-item-form/CreateItemFormUI';
+import CreateItemFormUI from 'shared/create-item-form/CreateItemFormUI';
 import React, { Component } from 'react';
 
 class CreateItemFormClass extends Component {
