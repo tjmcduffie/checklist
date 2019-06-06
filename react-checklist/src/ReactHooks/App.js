@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import * as db from '../shared/util/LocalDataAPI';
 import React, { useCallback, useEffect, useState } from 'react';
 
-import '../shared/base/css/App.css';
+import '../shared/chrome/css/App.css';
 import '../shared/base/css/Button.css';
 import '../shared/base/css/Flex.css';
 

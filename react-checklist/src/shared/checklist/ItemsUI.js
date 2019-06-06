@@ -23,7 +23,7 @@ const ItemsUI = ({isSortable, items, onToggleIsComplete, onRemoveItem, shouldSho
         );
       })}
     </ol>
-  ) : null;
+  ) : <ol />;
 };
 
 export default ItemsUI;

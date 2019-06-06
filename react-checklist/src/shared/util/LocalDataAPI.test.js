@@ -21,6 +21,7 @@ jest
       version: jest.fn().mockImplementation(() => MockDexie.API),
       stores: jest.fn().mockImplementation(() => MockDexie.API),
       table: jest.fn().mockImplementation(() => MockDexie.API),
+      count: jest.fn(),
     };
     return MockDexie;
   })
@@ -47,13 +48,16 @@ describe('LocalDataAPI normalizes interactions with IndexedDBs', () => {
   });
 
   describe('Items table', () => {
-    it('creates new entries', () => {
+    it('creates new entries', async () => {
+      dexie.count.mockResolvedValue(0);
       db.create({description: 'foo'});
+      await Promise.resolve()
       expect(dexie.table.mock.calls[0][0]).toEqual(ITEMS_TABLE);
       expect(dexie.add.mock.calls.length).toBe(1);
       expect(typeof dexie.add.mock.calls[0][0].createdTimestamp).toBe('number');
       expect(dexie.add.mock.calls[0][0].description).toEqual('foo');
       expect(typeof dexie.add.mock.calls[0][0].lastUpdateTimestamp).toBe('number');
+      expect(dexie.add.mock.calls[0][0].order).toEqual(0);
       expect(dexie.add.mock.calls[0][0].uuid).toEqual('asdfasdf');
     });
 
@@ -65,6 +69,22 @@ describe('LocalDataAPI normalizes interactions with IndexedDBs', () => {
       expect(dexie.update.mock.calls[0][0]).toEqual('asdfasdf');
       expect(dexie.update.mock.calls[0][1].description).toEqual('fooBar');
       expect(dexie.update.mock.calls[0][1].lastUpdateTimestamp).toBeGreaterThanOrEqual(now);
+    });
+
+    it('updates multiple existing entries', () => {
+      const now = Date.now();
+      db.bulkUpdate([
+        ['asdfasdf', {description: 'fooBar'}],
+        ['fdsafdsa', {description: 'barFoo'}]
+      ]);
+      expect(dexie.table.mock.calls[0][0]).toEqual(ITEMS_TABLE);
+      expect(dexie.update.mock.calls.length).toBe(2);
+      expect(dexie.update.mock.calls[0][0]).toEqual('asdfasdf');
+      expect(dexie.update.mock.calls[0][1].description).toEqual('fooBar');
+      expect(dexie.update.mock.calls[0][1].lastUpdateTimestamp).toBeGreaterThanOrEqual(now);
+      expect(dexie.update.mock.calls[1][0]).toEqual('fdsafdsa');
+      expect(dexie.update.mock.calls[1][1].description).toEqual('barFoo');
+      expect(dexie.update.mock.calls[1][1].lastUpdateTimestamp).toBeGreaterThanOrEqual(now);
     });
 
     it('removes an existing entry', () => {

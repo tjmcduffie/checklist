@@ -3,7 +3,7 @@ import uuid from './uuid';
 
 const db = new Dexie('react-checklist');
 db.version(1).stores({
-  items: "uuid, createdTimestamp, description, isComplete, lastUpdateTimestamp",
+  items: "uuid, createdTimestamp, description, order, isComplete, lastUpdateTimestamp",
   metadata: "key, value",
 });
 
@@ -14,15 +14,20 @@ export default db;
  * data: Item object
  * returns [Promise/A+](https://dexie.org/docs/Promise/Promise)
  */
-export function create(baseData) {
-  const now = Date.now();
-  const data = Object.assign(baseData, {
-    createdTimestamp: now,
-    lastUpdateTimestamp: now,
-    uuid: uuid(),
-  });
-  return db.table('items').add(data);
-}
+ export function create(baseData) {
+   return db.table('items')
+     .count()
+     .then(count => {
+       const now = Date.now();
+       const data = Object.assign(baseData, {
+         createdTimestamp: now,
+         lastUpdateTimestamp: now,
+         order: count,
+         uuid: uuid(),
+       });
+       return db.table('items').add(data);
+     });
+ }
 
 /**
  * key: Item uuid
@@ -34,6 +39,27 @@ export function update(key, baseData) {
     lastUpdateTimestamp: Date.now()
   });
   return db.table('items').update(key, data);
+}
+
+/**
+ * update multiple Items
+ * data: Array of tuples containing a uuid and updates to apply
+ * returns [Promise/A+](https://dexie.org/docs/Promise/Promise)
+ */
+export function bulkUpdate(data) {
+  return new Promise((resolve, reject) => {
+    Promise.all(
+      data.map(([uuid, dataToUpdate]) => update(uuid, dataToUpdate)
+    )).then(values => {
+      values.forEach(value => {
+        if (value === 0) {
+          reject(new Error(`${uuid} could not be updated as it could not be found`));
+        }
+      });
+      return Promise.all(data.map(([uuid]) => findByUuid(uuid)))
+        .then(values => resolve(values));
+    });
+  });
 }
 
 /**
