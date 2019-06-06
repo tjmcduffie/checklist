@@ -1,6 +1,5 @@
 import ChecklistCreateItemForm from './CreateItemFormClass';
 import ChecklistItems from '../shared/checklist/ItemsUI';
-import classnames from 'classnames';
 import Header from '../shared/chrome/Header';
 import * as db from '../shared/util/LocalDataAPI';
 import React, { Component } from 'react';

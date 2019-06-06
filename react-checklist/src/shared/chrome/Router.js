@@ -1,5 +1,5 @@
-import React, {lazy, useState, useEffect, Suspense} from 'react';
-import {BrowserRouter, Link, Route, Switch} from 'react-router-dom';
+import React from 'react';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import Deferred from '../base/Deferred';
 import Nav from './Nav';
 import routesConfig from '../../routesConfig';

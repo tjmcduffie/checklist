@@ -1,6 +1,5 @@
 import CreateItemFormHooks from './CreateItemFormHooks';
 import {SortableItems as ChecklistItems} from '../shared/checklist/ItemsUI';
-import classnames from 'classnames';
 import Header from '../shared/chrome/Header';
 import * as db from '../shared/util/LocalDataAPI';
 import React, { useCallback, useEffect, useState } from 'react';
