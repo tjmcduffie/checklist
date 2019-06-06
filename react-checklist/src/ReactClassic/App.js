@@ -1,6 +1,7 @@
 import ChecklistCreateItemForm from './CreateItemFormClass';
 import ChecklistItems from '../shared/checklist/ItemsUI';
 import classnames from 'classnames';
+import Header from '../shared/chrome/Header';
 import * as db from '../shared/util/LocalDataAPI';
 import React, { Component } from 'react';
 
@@ -77,17 +78,10 @@ class App extends Component {
     const {items, shouldShowCompleted} = this.state;
     return (
       <div className="app">
-        <header className={classnames('flex-row')}>
-          <h1 className={classnames('flex-grow')}>Checklist</h1>
-          <button
-            className={classnames('clear-button', 'monospaced-button', 'flex-shrink', 'flex-align-center')}
-            onClick={this._onToggleCompleted}
-            onKeyPress={
-              e => ((e.key === " " || e.key === "Enter") && this._onToggleCompleted())
-            }>
-            {shouldShowCompleted ? 'Hide completed' : 'Show completed'}
-          </button>
-        </header>
+        <Header
+          onToggleShowCompleted={this._onToggleCompleted}
+          shouldShowCompleted={shouldShowCompleted}
+        />
         <main>
           <ChecklistItems
             items={items}

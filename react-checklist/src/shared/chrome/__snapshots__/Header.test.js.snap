@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header renders predictably when hiding completed items 1`] = `
+<header
+  className="flex-row"
+>
+  <h1
+    className="flex-grow"
+  >
+    Checklist
+  </h1>
+  <button
+    className="clear-button flex-shrink flex-align-center"
+    onKeyPress={[Function]}
+  >
+    Show completed
+  </button>
+</header>
+`;
+
+exports[`Header renders predictably when showing completed items 1`] = `
+<header
+  className="flex-row"
+>
+  <h1
+    className="flex-grow"
+  >
+    Checklist
+  </h1>
+  <button
+    className="clear-button flex-shrink flex-align-center"
+    onKeyPress={[Function]}
+  >
+    Show completed
+  </button>
+</header>
+`;

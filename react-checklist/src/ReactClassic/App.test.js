@@ -172,7 +172,7 @@ describe('ReactClassic App', () => {
       db.putMetadata.mockResolvedValue();
       const elem = shallow(<App />);
       expect(elem.state('shouldShowCompleted')).toEqual(true);
-      elem.find('button').prop('onClick')();
+      elem.find('Header').prop('onToggleShowCompleted')();
 
       await Promise.resolve();
       expect(db.putMetadata.mock.calls[0][1]).toEqual(false);

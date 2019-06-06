@@ -1,6 +1,7 @@
 import CreateItemFormHooks from './CreateItemFormHooks';
 import {SortableItems as ChecklistItems} from '../shared/checklist/ItemsUI';
 import classnames from 'classnames';
+import Header from '../shared/chrome/Header';
 import * as db from '../shared/util/LocalDataAPI';
 import React, { useCallback, useEffect, useState } from 'react';
 
@@ -138,17 +139,10 @@ const App = () => {
 
   return (
     <div className="app">
-      <header className={classnames('flex-row')}>
-        <h1 className={classnames('flex-grow')}>Checklist</h1>
-        <button
-          className={classnames('clear-button', 'flex-shrink', 'flex-align-center')}
-          onClick={onToggleCompleted}
-          onKeyPress={
-            e => ((e.key === " " || e.key === "Enter") && onToggleCompleted())
-          }>
-          {shouldShowCompleted ? 'Hide completed' : 'Show completed'}
-        </button>
-      </header>
+      <Header
+        onToggleShowCompleted={onToggleCompleted}
+        shouldShowCompleted={shouldShowCompleted}
+      />
       <main>
         <ChecklistItems
           items={items}
