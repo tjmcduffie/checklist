@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Router renders predictably 1`] = `
+Array [
+  <nav>
+    <ul>
+      <li>
+        <a
+          href="/"
+          onClick={[Function]}
+        >
+          Home
+        </a>
+        <a
+          href="/react-classic"
+          onClick={[Function]}
+        >
+          React Classic
+        </a>
+        <a
+          href="/react-hooks"
+          onClick={[Function]}
+        >
+          React Hooks
+        </a>
+      </li>
+    </ul>
+  </nav>,
+  <div>
+    index
+  </div>,
+]
+`;

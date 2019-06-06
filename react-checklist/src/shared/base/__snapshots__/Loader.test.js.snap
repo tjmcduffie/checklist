@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loader renders predictably 1`] = `
+<div>
+  Loading
+  
+</div>
+`;

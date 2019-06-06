@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Nav renders predictably 1`] = `
+<nav>
+  <ul>
+    <li>
+      <Link
+        to="/"
+      >
+        Home
+      </Link>
+      <Link
+        to="/react-classic"
+      >
+        React Classic
+      </Link>
+      <Link
+        to="/react-hooks"
+      >
+        React Hooks
+      </Link>
+    </li>
+  </ul>
+</nav>
+`;
