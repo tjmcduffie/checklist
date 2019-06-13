@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "classnames": "^2.2.6",
+    "cypress-jest-adapter": "^0.1.0",
     "dexie": "^2.0.4",
     "react": "^16.9.0-alpha.0",
     "react-dom": "^16.9.0-alpha.0",
@@ -33,6 +34,7 @@
     "cypress": "^3.3.1",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.13.2",
+    "eslint-plugin-cypress": "^2.2.1",
     "puppeteer": "^1.17.0",
     "react-test-renderer": "^16.8.6"
   }
