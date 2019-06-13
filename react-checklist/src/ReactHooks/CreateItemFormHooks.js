@@ -5,16 +5,17 @@ const CreateItemFormHooks = ({onCreate}) => {
   const [value, setValue] = useState('');
   const onSubmit = e => {
     e.preventDefault();
-    if (value === '') {
+    const description = value.trim();
+    if (description === '') {
       return;
     }
     onCreate({
-      description: value,
+      description,
       isComplete: false,
     });
     setValue('');
   };
-  const onChange = e => setValue(e.target.value.trim());
+  const onChange = e => setValue(e.target.value);
 
   return (
     <CreateItemFormUI
