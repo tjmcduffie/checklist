@@ -2,13 +2,18 @@ import createItems, {itemTextPrefix} from '../helpers/checklist-create-item';
 import 'cypress-jest-adapter';
 
 
-export default function test(version, URIPath) {
+export default function test(URIPath) {
   describe(`Core functionality`, () => {
     beforeEach(() => {
       cy.visit(URIPath);
     })
     afterEach(() => {
       indexedDB.deleteDatabase("react-checklist");
+    });
+
+    it('can load the checklist in a default state', async () => {
+      cy.get('.app').should('have.length', 1);
+      cy.get('.item').should('have.length', 0);
     });
 
     it('can create new items', () => {
@@ -83,6 +88,14 @@ export default function test(version, URIPath) {
         .should('not.have.class', 'item-checkbox-ui-complete')
         .nextAll('.item-description-complete')
         .should('have.length', 0);
+    });
+
+    it('supports persistent data in the browser', () => {
+      createItems(2);
+      cy.get('.item').should('have.length', 2);
+
+      cy.reload();
+      cy.get('.item').should('have.length', 2);
     });
   });
 }
