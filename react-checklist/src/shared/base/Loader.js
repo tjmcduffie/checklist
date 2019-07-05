@@ -1,16 +1,15 @@
-import React, {useEffect, useState} from 'react';
+"use strict";
+
+import React, {useState} from 'react';
+import {useTimeout} from 'shared/util/hooks';
 
 const Loader = () => {
   const [periods, setPeriods] = useState('');
-  let timeout;
 
-  useEffect(() => {
-    timeout = setTimeout(
-      () => setPeriods(periods.length === 3 ? '' : periods + '.'),
-      250
-    );
-    return () => clearTimeout(timeout);
-  }, [periods]);
+  useTimeout(
+    () => setPeriods(periods.length === 3 ? '' : periods + '.'),
+    250,
+  );
 
   return (
     <div>Loading{periods}</div>
